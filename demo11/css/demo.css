@@ -1,0 +1,121 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+body {
+	background: linear-gradient(66deg, #eee, #95e, #58f, #21e, #ccc);
+}
+.wrapper {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	/*border: 1px solid #ccc;*/
+	margin: 100px auto;
+	border-radius: 50%;
+}
+.wrapper ul {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	transform: translate(-50%);
+}
+.wrapper ul li {
+	position: absolute;
+	display: flex;
+	width: 0%;
+	height: 0%;
+	background-color: #f6f;
+	border-radius: 50%;
+	transform-origin: 50px 250px;
+	transform: rotate(0deg);
+	transition: all 0.6s linear;
+	justify-content: center;
+	align-items: center;
+}
+.wrapper ul li div {
+	width: 0;
+	height: 0;
+	transition: all 0.6s linear;
+	overflow: hidden;
+}
+.wrapper-active ul li:nth-of-type(1) {
+	transform: rotate(360deg);
+}
+.wrapper-active ul li:nth-of-type(2) {
+	transform: rotate(405deg);
+}
+.wrapper-active ul li:nth-of-type(3) {
+	transform: rotate(450deg);
+}
+.wrapper-active ul li:nth-of-type(4) {
+	transform: rotate(495deg);
+}
+.wrapper-active ul li:nth-of-type(5) {
+	transform: rotate(540deg);
+}
+.wrapper-active ul li:nth-of-type(6) {
+	transform: rotate(585deg);
+}
+.wrapper-active ul li:nth-of-type(7) {
+	transform: rotate(630deg);
+}
+.wrapper-active ul li:nth-of-type(8) {
+	transform: rotate(675deg);
+}
+.wrapper-active ul li div {
+	width: 100%;
+	height: 16px;
+	line-height: 1;
+	text-align: center;
+}
+.wrapper-active ul li:nth-of-type(1) div {
+	transform: rotate(-360deg);
+}
+.wrapper-active ul li:nth-of-type(2) div {
+	transform: rotate(-405deg);
+}
+.wrapper-active ul li:nth-of-type(3) div {
+	transform: rotate(-450deg);
+}
+.wrapper-active ul li:nth-of-type(4) div {
+	transform: rotate(-495deg);
+}
+.wrapper-active ul li:nth-of-type(5) div {
+	transform: rotate(-540deg);
+}
+.wrapper-active ul li:nth-of-type(6) div {
+	transform: rotate(-585deg);
+}
+.wrapper-active ul li:nth-of-type(7) div {
+	transform: rotate(-630deg);
+}
+.wrapper-active ul li:nth-of-type(8) div {
+	transform: rotate(-675deg);
+}
+.wrapper-active ul li {
+	width: 80%;
+	height: 80%;
+	/*transform: rotate(360deg);*/
+}
+.wrapper .center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 150px;
+	height: 150px;
+	background-color: #f60;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	line-height: 150px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.wrapper .center:hover {
+	background-color: #f70;
+}

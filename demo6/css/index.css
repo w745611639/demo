@@ -1,0 +1,147 @@
+@charset "utf-8";
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.wrapper {
+	width: 1000px;
+	height: 800px;
+	border: 1px solid #999;
+	margin: 80px auto;
+	background: #f4dfcf;
+	text-align: center;
+}
+.game-message {
+	width: 800px;
+	margin: 0 auto;
+}
+.game-handle {
+	position: relative;
+	display: inline-block;
+	padding-top: 80px;
+	/*height: 400px;*/
+	margin: 0 auto;
+}
+.game-message h2 {
+	height: 36px;
+	line-height: 36px;
+	border: 1px solid #ccc;
+}
+.game-message .difficulty {
+	/*height: 30px;*/
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+.game-message .difficulty h3,
+.game-message .time h3 {
+	height: 42px;
+	line-height: 42px;
+	color: #f60;
+	border-bottom: 1px solid #ccc;
+}
+.game-message .difficulty div,
+.game-message .time div {
+	float: left;
+	height: 30px;
+	border-right: 1px solid #ccc;
+	line-height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.game-message .difficulty .active {
+	background: #ca83ca;
+}
+.game-message .difficulty div {
+	width: 200px;
+	cursor: pointer;
+}
+.game-message .ease {
+	color: #12ee33;
+}
+.game-message .common {
+	color: #a3c245;
+}
+.game-message div.hard {
+	color: #d2a173;
+	border: none;
+}
+.game-message .time {
+	float: right;
+	font-weight: bold;
+	color: #333;
+	font-size: 16px;
+}
+.game-message .time h3 {
+	border-right: 1px solid #ccc;
+}
+.game-message .time div {
+	width: 194px;
+	/*box-sizing: border-box;*/
+	border-bottom: 1px solid #ccc;
+	color: #c1a2b2;
+}
+.game-handle .items,
+.game-handle .cover {
+	width: 270px;
+}
+.game-handle .items:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.game-handle .cover {
+	position: absolute;
+	/*display: none;*/
+	bottom: 40px;
+	left: 0;
+}
+.game-handle .items li,
+.game-handle .cover li {
+	float: left;
+	width: 30px;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #eee;
+	line-height: 30px;
+	font-weight: bold;
+	color: #666;
+}
+.game-handle .cover li {
+	background: #ccc;
+}
+.game-handle .cover li.click {
+	opacity: 0;
+}
+.game-handle .cover li.add-flag {
+	background: #ccc url(../image/flag.jpg) no-repeat 0 0/cover;
+}
+.game-handle .items li.mine {
+	background: url(../image/mine.jpg) no-repeat 0 0/cover;
+}
+.game-handle .reminder {
+	width: 100%;
+	height: 24px;
+	padding: 8px 0;
+	/*margin-top: 12px;
+	border: 1px solid #ccc;*/
+}
+.game-handle .mine-num {
+	float: left;
+}
+.game-handle .flag {
+	float: right;
+}
+.game-handle .reminder div img {
+	width: 24px;
+}
+.reminder div span {
+	display: inline-block;
+	line-height: 24px;
+	font-weight: bold;
+	color: #999;
+	vertical-align: top;
+}
+
+

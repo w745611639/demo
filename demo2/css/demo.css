@@ -1,0 +1,167 @@
+@charset "utf-8";
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+html, body, .wrapper {
+	width: 100%;
+	height: 100%;
+}
+body {
+	background-color: #000;
+}
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.wrapper ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	height: 80%;
+}
+.wrapper ul .item {
+	position: relative;
+	width: 16%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(111,111,111, 0.7);
+	border-radius: 25px;
+	cursor: pointer;
+	transition: height 0.5s linear 0.5s, width 0.5s linear;
+}
+.wrapper-active ul .item {
+	transition: height 0.5s linear, width 0.5s linear 0.5s;
+}
+.wrapper-active ul .item:not(.active) {
+	width: 0;
+	height: 0;
+}
+.wrapper-active ul .active {
+	width: 100%;
+	height: 100%;
+}
+.wrapper ul .item .con,
+.wrapper ul .item .con .bg {
+	width: 100%;
+	height: 100%;
+}
+.wrapper ul .item .con {
+	transition: transform 0.5s linear;
+}
+.init ul .item .con {
+	transform: translate3d(0, 100%, 0);
+}
+.wrapper ul .item:nth-of-type(1) .con {
+	transition-delay: 0.1s;
+}
+.wrapper ul .item:nth-of-type(2) .con {
+	transition-delay: 0.2s;
+}
+.wrapper ul .item:nth-of-type(3) .con {
+	transition-delay: 0.3s;
+}
+.wrapper ul .item:nth-of-type(4) .con {
+	transition-delay: 0.4s;
+}
+.wrapper ul .item:nth-of-type(5) .con {
+	transition-delay: 0.5s;
+}
+.wrapper ul .item:nth-of-type(6) .con {
+	transition-delay: 0.6s;
+}
+.item .con .bg {
+	position: absolute;
+	opacity: 0.5;
+	background-position: center;
+	background-size: cover;
+}
+li.active .con .bg {
+	opacity: 1;
+}
+.wrapper ul .item:nth-of-type(1) .con .bg {
+	background-image: url(../images/1.jpg);
+}
+.wrapper ul .item:nth-of-type(2) .con .bg {
+	background-image: url(../images/2.jpg);
+}
+.wrapper ul .item:nth-of-type(3) .con .bg {
+	background-image: url(../images/3.jpg);
+}
+.wrapper ul .item:nth-of-type(4) .con .bg {
+	background-image: url(../images/4.jpg);
+}
+.wrapper ul .item:nth-of-type(5) .con .bg {
+	background-image: url(../images/5.jpg);
+}
+.wrapper ul .item:nth-of-type(6) .con .bg {
+	background-image: url(../images/6.jpg);
+}
+.con .title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: #fff;
+	font-weight: bold;
+	opacity: 1;
+	transition: opacity 0.2s linear 1.1s, font-size 0.2s linear;
+	transform: translate(-50%, -50%);
+}
+.init .con .title {
+	opacity: 0;
+}
+.item:hover .con .bg {
+	opacity: 1;
+}
+.item:hover .con .title {
+	font-size: 24px;
+}
+.item .con .desc {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	top: 50px;
+	width: 100%;
+	height: 30px;
+	color: #fff;
+	transition: opacity 0.2s linear 0.5s;
+}
+.active .con .desc {
+	z-index: 1;
+	opacity: 1;
+}
+.item .con .desc .details {
+	position: absolute;
+	left: 50px;
+	font-size: 20px;
+	line-height: 30px;
+}
+.item .con .desc .close {
+	position: absolute;
+	right: 50px;
+	width: 30px;
+	height: 100%;
+	transition: transform 0.5s linear 1s;
+}
+.active .con .desc .close {
+	transform: rotate(360deg);
+}
+.con .desc .close::before,
+.con .desc .close::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	width: 4px;
+	height: 30px;
+	background-color: #fff;
+	transform: translate(-50%);
+}
+.con .desc .close::before {
+	transform: rotateZ(-45deg);
+}
+.con .desc .close::after {
+	transform: rotateZ(45deg);
+}

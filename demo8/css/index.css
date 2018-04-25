@@ -1,0 +1,93 @@
+@charset "utf-8";
+	* {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	.box {
+		width: 200px;
+		height: 200px;
+		margin: 180px auto 0;
+		border-radius: 50%;
+		background: #000;
+		overflow: hidden;
+	}
+	.wrapper {
+		position: relative;
+		width: 170px;
+		height: 170px;
+		margin: 15px;	
+		border-radius: 50%;
+		/*background: #333;*/
+	}
+	.wrapper ul {
+		position: absolute;
+		left: 50%;
+		width: 170px;
+		height: 170px;
+		/*transform: translate(-50%);*/
+	}
+	/*时针刻度*/
+	.wrapper .control-hour li {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 2px;
+		height: 8px;
+		background: #eee;
+		transform-origin: 1px 85px;
+	}
+	/* 秒针刻度*/
+	.wrapper .control-second li {
+		position: absolute;
+		width: 2px;
+		height: 5px;
+		background: #ddd;
+		transform-origin: 1px 85px;
+	}
+	/*数字*/
+	.wrapper .control-num li {
+		position: absolute;
+		top: 8px;
+		color: #fff;
+		transform-origin: 0 77px;
+	}
+	.wrapper .control-pointer div {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+	/* 圆心*/
+	.wrapper .control-pointer .circle {
+		z-index: 1;
+		transform: translate(-50%,-50%);
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #fff;
+	}
+	/*秒针 分针 时针 共用样式统一设置*/
+	.wrapper .control-pointer .second-ned,
+	.wrapper .control-pointer .min-ned,
+	.wrapper .control-pointer .hour-ned {
+		border-radius: 0 0 50% 50%;
+		transform-origin: 0 0;
+		/*transform: translate(-50%);*/
+	}
+	/* 秒针 分针 时针 样式设置*/
+	.wrapper .control-pointer .second-ned {
+		width: 2px;
+		height: 72px;
+		background: red;
+		/*transform: rotate(60deg) translate(-50%);*/		
+	}
+	.wrapper .control-pointer .min-ned {
+		width: 3px;
+		height: 58px;
+		background: orange;
+	}
+	.wrapper .control-pointer .hour-ned {
+		width: 4px;
+		height: 40px;
+		background: #fff;
+	}
