@@ -3,15 +3,20 @@
 	margin: 0;
 	list-style: none;
 }
+
+html, body {
+	height: 100%;
+}
 body {
 	background: linear-gradient(66deg, #eee, #95e, #58f, #21e, #ccc);
 }
 .wrapper {
 	position: relative;
+	top: 100px;
 	width: 500px;
 	height: 500px;
 	/*border: 1px solid #ccc;*/
-	margin: 100px auto;
+	margin: 0 auto;
 	border-radius: 50%;
 }
 .wrapper ul {
