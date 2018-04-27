@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d立方体</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 200px auto;
+			perspective: 800px;
+		}
+		.wrapper .con {
+			position: relative;
+			width: 200px;
+			height: 200px;
+			/*border: 1px solid #ccc;*/
+			transform-style: preserve-3d;
+			transform: rotateX(0deg);
+			animation: turn 8s linear infinite;
+		}
+		@keyframes turn {
+			0% {
+				transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+			}
+			50% {
+				transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+			}
+			100% {
+				transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+			}
+		}
+		.wrapper .con .item {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			line-height: 200px;
+			font-size: 30px;
+			font-weight: bold;
+			color: #fff;
+			opacity: 0.5;
+		}
+		.wrapper .con .item:nth-of-type(1) {
+			background-color: red;
+			transform: rotate3d(0, 0, 0, 0deg) translateZ(100px);
+		}
+		.wrapper .con .item:nth-of-type(2) {
+			background-color: blue;
+			transform: rotate3d(0, 1, 0, 90deg) translateZ(100px);
+		}
+		.wrapper .con .item:nth-of-type(3) {
+			background-color: green;
+			transform: rotate3d(0, 1, 0, 180deg) translateZ(100px);
+		}
+		.wrapper .con .item:nth-of-type(4) {
+			background-color: orange;
+			transform: rotate3d(0, 1, 0, 270deg) translateZ(100px);
+		}
+		.wrapper .con .item:nth-of-type(5) {
+			background-color: skyblue;
+			transform: rotate3d(1, 0, 0, 90deg) translateZ(100px);
+		}
+		.wrapper .con .item:nth-of-type(6) {
+			background-color: purple;
+			transform: rotate3d(1, 0, 0, -90deg) translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<ul class="con">
+			<li class="item">1</li>
+			<li class="item">2</li>
+			<li class="item">3</li>
+			<li class="item">4</li>
+			<li class="item">5</li>
+			<li class="item">6</li>
+		</ul>
+	</div>
+</body>
+</html>
