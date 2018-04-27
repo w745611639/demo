@@ -1,0 +1,201 @@
+@charset "utf-8";
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.wrapper {
+	width: 800px;
+	height: 560px;
+	border: 1px solid #000;
+	margin: 100px auto;
+}
+.wrapper .con {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width :100%;
+	height: 100%;
+}
+.wrapper .con .item {
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+	/*border: 1px solid #000;*/
+	perspective: 500px;
+}
+.item .picbox,
+.item .picbox .show,
+.item .picbox .hide,
+.item .picbox .show img {
+	width: 100%;
+	height: 100%;
+}
+.item .picbox {
+	position: relative;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50% -100px;
+	/*transition: transform 5s linear 0.1s;*/
+	animation-duration: 0.2s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+.item .picbox .show {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.item .picbox .hide  {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-weight: bold;
+	color: #fff;
+	line-height: 200px;
+	text-align: center;
+	background-color: #000;
+	transform: translateZ(-1px);
+}
+/* 左部进出*/
+/*.con .item .in-left {
+	transform: rotateY(90deg);
+}
+.con .item .out-left {
+	transform: rotateY(0deg);
+}*/
+
+.con .item .in-left {
+	animation-name: inleft;
+}
+.con .item .out-left {
+	animation-name: outleft;
+}
+@keyframes inleft {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(90deg);
+	}
+}
+@keyframes outleft {
+	0% {
+		transform: rotateY(90deg);
+	}
+	100% {
+		transform: rotateY(0deg);
+	}
+}
+.con .item .in-left .hide,
+.con .item .out-left .hide{
+	transform-origin: right;
+	transform: translateX(-200px) rotateY(-90deg);
+}
+
+/*上部进出*/
+/*.con .item .in-top {
+	transform: rotateX(-90deg);
+}
+.con .item .out-top {
+	transform: rotateX(0deg);
+}*/
+
+.con .item .in-top {
+	animation-name: intop;
+}
+.con .item .out-top {
+	animation-name: outtop;
+}
+@keyframes intop {
+	0% {
+		transform: rotateX(0deg);
+	}
+	100% {
+		transform: rotateX(-90deg);
+	}
+}
+@keyframes outtop {
+	0% {
+		transform: rotateX(-90deg);
+	}
+	100% {
+		transform: rotateX(0deg);
+	}
+}
+.con .item .in-top .hide,
+.con .item .out-top .hide {
+	transform-origin: bottom;
+	transform: translateY(-200px) rotateX(90deg);
+}
+
+/*右部进出*/
+/*.con .item .in-right {
+	transform: rotateY(-90deg);
+}
+.con .item .out-right {
+	transform: rotateY(0deg);
+}*/
+.con .item .in-right {
+	animation-name: inright;
+}
+.con .item .out-right {
+	animation-name: outright;
+}
+@keyframes inright {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(-90deg);
+	}
+}
+@keyframes outright {
+	0% {
+		transform: rotateY(-90deg);
+	}
+	100% {
+		transform: rotateY(0deg);
+	}
+}
+.con .item .in-right .hide,
+.con .item .out-right .hide {
+	transform-origin: left;
+	transform: translateX(200px) rotateY(90deg);
+}
+
+/*下部进出*/
+/*.con .item .in-bottom {
+	transform: rotateX(90deg);
+}
+.con .item .out-bottom {
+	transform: rotateX(0deg);
+}*/
+.con .item .in-bottom {
+	animation-name: inbottom;
+}
+.con .item .out-bottom {
+	animation-name: outbottom;
+}
+@keyframes inbottom {
+	0% {
+		transform: rotateX(0deg);
+	}
+	100% {
+		transform: rotateX(90deg);
+	}
+}
+@keyframes outbottom {
+	0% {
+		transform: rotateX(90deg);
+	}
+	100% {
+		transform: rotateX(0deg);
+	}
+}
+.con .item .in-bottom .hide,
+.con .item .out-bottom .hide {
+	transform-origin: top;
+	transform: translateY(200px) rotateX(-90deg);
+}
+
