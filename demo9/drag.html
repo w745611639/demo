@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽与删除</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrapper {
+            width: 300px;
+            margin: 100px auto 0;
+            text-align: center;
+        }
+
+        li {
+            height: 42px;
+            line-height: 42px;
+            background-color: #f60;
+        }
+
+        li + li {
+            margin-top: 20px;
+        }
+
+        #delete {
+            height: 60px;
+            margin-top: 50px;
+            line-height: 60px;
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul>
+            <li draggable="true">列表1</li>
+            <li draggable="true">列表2</li>
+            <li draggable="true">列表3</li>
+            <li draggable="true">列表4</li>
+            <li draggable="true">列表5</li>
+        </ul>
+        <div id="delete">
+            删除列表
+        </div>
+    </div>
+    <script>
+        var dragManager = {
+            init: function () {
+                this.initIndex(this.targetDom);
+                this.addEvent();
+            },
+            addEvent: function () {
+                var baseDom = this.baseDom;
+                var targetDom = this.targetDom;
+                var deleteDom = this.deleteDom;
+                var self = this;
+                // 监听dragstart 事件 添加索引值
+                baseDom.addEventListener('dragstart', function (e) {
+                    var target = e.target;
+                    if (typeof (target) === 'object' && target.nodeName === 'LI') {
+                        e.dataTransfer.setData('index', target.index);
+                    }
+                }, false);
+                // 阻止事件默认行为 
+                baseDom.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                }, false);
+                // 换位元素区域，拖拽至此区域，触发drop事件时，将拖拽元素移动到目标元素之前
+                // 并重新计算index值;
+                baseDom.addEventListener('drop', function (e) {
+                    var target = e.target, index;
+                    if (typeof (target) === 'object' && target.nodeName === 'LI') {
+                        index = e.dataTransfer.getData('index');
+                        baseDom.insertBefore(targetDom[index], target);
+                        self.initIndex(targetDom);
+                    }
+
+                }, false);
+                // 阻止默认事件, 让drop事件可以触发
+                deleteDom.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                });
+                // 删除拖拽元素区域，触发drop事件，删除当前拖拽的元素, 并重新计算index值;
+                deleteDom.addEventListener('drop', function (e) {
+                    var index = e.dataTransfer.getData('index');
+                    self.deleteIndex(targetDom, index)
+                })
+            },
+            initIndex: function (dom) {
+                var len = dom.length || 0;
+                for (var i = 0; i < len; i++) {
+                    dom[i].index = i;
+                }
+            },
+            deleteIndex: function (dom, index) {
+                dom[index].remove();
+                this.initIndex(dom)
+            },
+            baseDom: document.getElementsByTagName('ul')[0],
+            deleteDom: document.getElementById('delete')
+        }
+        dragManager.targetDom = dragManager.baseDom.getElementsByTagName('li');
+        dragManager.init();
+        // var oUl = document.getElementsByTagName('ul')[0],
+        //     oLi = oUl.getElementsByTagName('li');
+        // oUl.addEventListener('dragstart', function (e) {
+        //     var target = e.target;
+        //     if (typeof (target) === 'object' && target.nodeName === 'LI') {
+        //         e.dataTransfer.setData('item', target.getAttribute('data-item'));
+        //         // console.log(target.getAttribute('data-item'));
+        //     }
+        // }, false);
+
+        // oUl.addEventListener('dragover', function (e) {
+        //     e.preventDefault();
+        // }, false);
+
+        // oUl.addEventListener('drop', function (e) {
+        //     var target = e.target, index;
+        //     if (typeof (target) === 'object' && target.nodeName === 'LI') {
+        //         index = e.dataTransfer.getData('item') - 1;
+        //         oUl.insertBefore(oLi[index], target);
+        //     }
+
+        // }, false)
+
+        // function initIndex(dom) {
+        //     var len = dom.length || 0;
+        //     for (var i = 0; i < len; i++) {
+        //         dom.index = i;
+        //     }
+        // }
+
+
+        // function exchangeIndex(target, source) {
+        //     [target.index, source.index] = [source.index, target.index];
+        // }
+
+        // function deleteIndex(dom, index) {
+        //     dom[index].remove();
+        //     initIndex(dom)
+        // }
+    </script>
+</body>
+
+</html>
